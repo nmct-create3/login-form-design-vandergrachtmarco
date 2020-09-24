@@ -23,7 +23,16 @@
 #Variables
 \*------------------------------------*/
     
-     :root {}
+     :root {
+        --font-preset: "Inter", Helvetica, arial, sans-serif;
+        --colour-text-black: #20223A;
+        --colour-blockport-blue: #3385FF;
+        --colour-blockport-blue-transparent: #3385FF4d;
+        --colour-blockport-darkblue: #1B4186;
+        --colour-shadow: #CACCD4;
+        --colour-button-border: #2E77E6;
+        --colour-background-white: #F5F6FA;
+    }
     /* CSS variables here */
     /*------------------------------------*\
 #GENERIC
@@ -37,10 +46,9 @@
     html {
         font-size: 16px;
         line-height: 1.5;
-        --font-preset: "Inter", Helvetica, arial, sans-serif;
         font-family: var(--font-preset);
-        color: #20223a;
-        background-color: #F5F6FA;
+        color: var(--colour-text-black);
+        background-color: var(--colour-background-white);
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -59,13 +67,13 @@
 */
     
      ::-moz-selection {
-        background: #3385FF;
+        background: var(--colour-blockport-blue);
         color: white;
         text-shadow: none;
     }
     
      ::selection {
-        background: #3385FF;
+        background: var(--colour-blockport-blue);
         color: white;
         text-shadow: none;
     }
@@ -167,7 +175,7 @@ Default markup for images to make them responsive
     }
     
     a {
-        color: #3385FF;
+        color: var(--colour-blockport-blue);
         transition: all .1s ease-in-out;
     }
     
@@ -201,6 +209,11 @@ Default markup for images to make them responsive
     
     .o-row--login {
         /* stuff here to align the card */
+        display: flex;
+        /*aligneert child element*/
+        height: 100%;
+        align-items: center;
+        min-height: 100vh;
     }
     /* size modifiers */
     
@@ -442,15 +455,15 @@ Default markup for images to make them responsive
     }
     
     .c-logo__path--1 {
-        fill: #20223A;
+        fill: var(--colour-text-black);
     }
     
     .c-logo__path--2 {
-        fill: #3385FF;
+        fill: var(--colour-blockport-blue);
     }
     
     .c-logo__path--3 {
-        fill: #1B4186;
+        fill: var(--colour-blockport-darkblue);
     }
     /*
     Component: Card
@@ -460,13 +473,34 @@ Default markup for images to make them responsive
     
     .c-card {
         background-color: #fff;
+        border-style: solid;
+        border-radius: 3px;
+        border-color: var(--colour-shadow);
+        border-width: 1px;
+        box-shadow: 0px 2px 8px var(--colour-shadow);
     }
     
-    .c-card__header {}
+    .c-card__header {
+        padding-top: 40px;
+        font-size: 18px;
+        text-align: center;
+    }
     
-    .c-card__body {}
+    .c-card__body {
+        padding: 40px;
+        padding-bottom: 24px;
+    }
     
-    .c-card__footer {}
+    .c-card__footer {
+        border-style: solid;
+        border-top-color: var(--colour-shadow);
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-width: 1px;
+        padding-top: 24px;
+        text-align: center;
+    }
     /*
     Component: Forms
     ---
@@ -488,7 +522,7 @@ Default markup for images to make them responsive
         -moz-appearance: none;
         appearance: none;
         width: 100%;
-        border-color: #CACCD4;
+        border-color: var(--colour-shadow);
         border-radius: 3px;
         font-family: inherit;
         color: inherit;
@@ -498,10 +532,10 @@ Default markup for images to make them responsive
     }
     
     .c-input:focus {
-        outline: #3385FF4d;
-        border-color: #3385FF;
+        outline: var(--colour-blockport-blue-transparent);
+        border-color: var(--colour-blockport-blue);
         /*box-shadow: h-offset v-offset blur spread color*/
-        box-shadow: 0 0 0 3px #3385FF4d;
+        box-shadow: 0 0 0 3px var(--colour-blockport-blue-transparent);
     }
     /*
     Component: Label
@@ -509,7 +543,17 @@ Default markup for images to make them responsive
     Class to put on all form labels
 */
     
-    .c-label {}
+    .c-label {
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 8px;
+        color: #606274;
+    }
+    
+    .c-label--option {
+        margin-bottom: 0;
+        margin-left: 8px;
+    }
     /* If a input is focused within the form-field class change te color of the label */
     
     .c-form-field:focus-within .c-label {}
@@ -520,8 +564,8 @@ Default markup for images to make them responsive
 */
     
     .c-button {
-        background-color: #3385FF;
-        border-color: #2E77E6;
+        background-color: var(--colour-blockport-blue);
+        border-color: var(--colour-button-border);
         outline: none;
         color: #fff;
         border-radius: 3px;
@@ -537,15 +581,15 @@ Default markup for images to make them responsive
     }
     
     .c-button:focus {
-        background-color: #2E77E6;
+        background-color: var(--colour-button-border);
         outline: none;
-        border-color: #2E77E6;
+        border-color: var(--colour-button-border);
         /*box-shadow: h-offset v-offset blur spread color*/
-        box-shadow: 0 0 0 3px #3385FF4d;
+        box-shadow: 0 0 0 3px var(--colour-blockport-blue-transparent);
     }
     
     .c-button:active {
-        background-color: #3385FF;
+        background-color: var(--colour-blockport-blue);
     }
     
     .c-button--block {}
